@@ -1,5 +1,5 @@
-import ProfileForm from "@/components/profile-form";
-import ProfileHeader from "@/components/profile-header";
+import ProfileForm from "@/components/login/profile-form";
+import ProfileHeader from "@/components/login/profile-header";
 
 export default function Home() {
   return (

@@ -1,5 +1,5 @@
-import { ModeToggle } from "./mode-toggle";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
+import { ModeToggle } from "../mode-toggle";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog";
 
 export default function ProfileHeader() {
   return (

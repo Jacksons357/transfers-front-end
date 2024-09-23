@@ -4,9 +4,16 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { formSchema } from "@/@types/form-schema"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from './ui/form'
-import { Input } from './ui/input'
-import { Button } from './ui/button'
+import { 
+  Form, 
+  FormControl, 
+  FormField, 
+  FormItem, 
+  FormLabel, 
+  FormMessage 
+} from '../ui/form';
+import { Input } from '../ui/input'
+import { Button } from '../ui/button'
 
 export default function ProfileForm(){
   const form = useForm<z.infer<typeof formSchema>>({
