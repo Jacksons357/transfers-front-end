@@ -1,5 +1,9 @@
+import HomeForm from "@/components/home/home-form";
+
 export default function Transfers() {
   return (
-    <h1>Home page</h1>
+    <main>
+      <HomeForm />
+    </main>
   )
 }

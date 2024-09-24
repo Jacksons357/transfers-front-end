@@ -1,7 +1,7 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { formSchema } from "@/@types/form-schema"
+import { formLoginSchema } from "@/@types/form-schema"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { 
@@ -16,15 +16,15 @@ import { Input } from '../ui/input'
 import { Button } from '../ui/button'
 
 export default function ProfileForm(){
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<z.infer<typeof formLoginSchema>>({
+    resolver: zodResolver(formLoginSchema),
     defaultValues: {
       username: "",
       password: "",
     },
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  function onSubmit(values: z.infer<typeof formLoginSchema>) {
     console.log(values)
     form.reset()
   }
