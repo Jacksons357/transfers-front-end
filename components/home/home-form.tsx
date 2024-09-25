@@ -8,6 +8,9 @@ import { Form, FormControl, FormField, FormItem, FormLabel } from "../ui/form"
 import { Input } from "../ui/input"
 import { Button } from "../ui/button"
 
+interface HomeFormProps {
+  onSubmitForm: (values: z.infer<typeof formNewTransfer>) => void
+}
 interface FormFieldProps {
   name: keyof z.infer<typeof formNewTransfer>
   label: string
@@ -42,7 +45,7 @@ const formFields: FormFieldProps[] = [
   }
 ];
 
-export default function HomeForm() {
+export default function HomeForm({ onSubmitForm }: HomeFormProps) {
   const form = useForm<z.infer<typeof formNewTransfer>>({
     resolver: zodResolver(formNewTransfer),
     defaultValues: {
@@ -55,8 +58,8 @@ export default function HomeForm() {
     }
   })
 
-  function onSubmit(values: z.infer<typeof formNewTransfer>){
-    console.log(values)
+  function handleSubmit(values: z.infer<typeof formNewTransfer>){
+    onSubmitForm(values)
     form.reset()
   }
 
@@ -64,7 +67,7 @@ export default function HomeForm() {
     <div className="flex flex-col w-full justify-center">
       <Form {...form}>
         <form
-          onSubmit={form.handleSubmit(onSubmit)}
+          onSubmit={form.handleSubmit(handleSubmit)}
           className="w-96 space-y-4"
         >
           <h1 className="font-semibold text-2xl border-b pb-2">Adicionar transferência</h1>
