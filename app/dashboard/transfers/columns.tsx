@@ -1,4 +1,8 @@
+'use client'
+
 import { ColumnDef } from '@tanstack/react-table'
+import { MdDelete } from "react-icons/md";
+import { FaCheckSquare } from "react-icons/fa";
 
 export type Transfer = {
   product: string
@@ -45,4 +49,35 @@ export const columns: ColumnDef<Transfer>[] = [
     accessorKey: "status",
     header: "Status"
   },
+  {
+    accessorKey: "actions",
+    header: "Ações",
+    cell: ({ row }) => {
+      const transfer = row.original
+
+      function handleApprove() {
+        console.log('Aprovado', transfer)
+      }
+
+      function handleDelete() {
+        console.log('Deletado', transfer)
+      }
+
+      return (
+        <div className="flex items-center gap-4">
+          <MdDelete 
+            onClick={handleApprove} 
+            size={30} 
+            className='text-destructive hover:text-destructive/80 cursor-pointer' 
+          />
+
+          <FaCheckSquare
+            onClick={handleDelete}
+            size={30} 
+            className='text-green-600 hover:text-green-400 cursor-pointer'
+          />
+        </div>
+      )
+    }
+  }
 ]

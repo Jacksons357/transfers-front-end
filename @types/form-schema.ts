@@ -12,10 +12,15 @@ export const formLoginSchema = z.object({
 })
 
 export const formNewTransfer = z.object({
-  product: z.string(),
-  code: z.string(),
-  quantity: z.string(),
+  code: z
+    .string()
+    .min(1, {message: 'Deve ser informado o código de barras.'}),
+  quantity: z
+    .string()
+    .min(1, {message: 'Deve ser informado a quantidade.'}),
   lote: z.string(),
   validate: z.string(),
-  destination: z.string(),
+  destination: z
+    .string()
+    .min(2, {message: 'Deve ser informado a loja de destino.'}),
 })

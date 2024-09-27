@@ -4,7 +4,7 @@ import { formNewTransfer } from "@/@types/form-schema"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import { Form, FormControl, FormField, FormItem, FormLabel } from "../ui/form"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form"
 import { Input } from "../ui/input"
 import { Button } from "../ui/button"
 
@@ -25,17 +25,17 @@ const formFields: FormFieldProps[] = [
   },
   { 
     name: 'quantity', 
-    label: 'Quantidade', 
+    label: 'Quantidade',
     placeholder: 'Digite a quantidade' 
   },
   { 
     name: 'lote', 
-    label: 'Lote', 
+    label: 'Lote (opcional)', 
     placeholder: 'Número do lote' 
   },
   { 
     name: 'validate', 
-    label: 'Validade', 
+    label: 'Validade (opcional)', 
     placeholder: 'Data de validade' 
   },
   { 
@@ -49,7 +49,6 @@ export default function HomeForm({ onSubmitForm }: HomeFormProps) {
   const form = useForm<z.infer<typeof formNewTransfer>>({
     resolver: zodResolver(formNewTransfer),
     defaultValues: {
-      product: "",
       code: "",
       quantity: "",
       lote: "",
@@ -85,6 +84,7 @@ export default function HomeForm({ onSubmitForm }: HomeFormProps) {
                       {...formField}
                     />
                   </FormControl>
+                  <FormMessage />
                 </FormItem>
               )}
             />

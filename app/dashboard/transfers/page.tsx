@@ -15,7 +15,7 @@ async function getData(): Promise<Transfer[]>{
       status: "enviado"
     },
     {
-      product: "forxiga",
+      product: "testeeeeeeeeeeeeeeeeeeeeeeeeeeee",
       code: "789354762738",
       quantity: "1",
       destiny: "40",
